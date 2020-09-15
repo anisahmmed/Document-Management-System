@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,12 @@ Route::get('/users',[AdminController::class, 'user_info'])->name('user_info');
 Route::get('/user/edit/{id}',[AdminController::class, 'user_edit'])->name('user_edit');
 //Update user Info
 Route::post('/user/update',[AdminController::class, 'user_update'])->name('user_update');
+
+
+
+//Document insert form
+Route::get('/document/insert-form',[UserController::class, 'insert_form'])->name('insert_form');
+//All Document View
+Route::get('/all-document',[UserController::class, 'all_document'])->name('all_document');
+//Insert Documents
+Route::post('/document/insert',[UserController::class, 'document_insert'])->name('document_insert');
