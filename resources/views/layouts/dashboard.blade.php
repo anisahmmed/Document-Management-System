@@ -21,7 +21,7 @@
   <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
   <!-- Custom styles for this page -->
   <link href="{{ asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-
+  @toastr_css
 </head>
 
 
@@ -47,7 +47,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ url('/dashboard') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -72,7 +72,7 @@
             <a class="collapse-item" href="{{ url('/all-categories') }}">Category</a>
             <a class="collapse-item" href="#">Car Category</a>
             <a class="collapse-item" href="#">Register Driver for Car</a>
-            
+
           </div>
         </div>
       </li>
@@ -81,12 +81,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-user"></i>
-          <span>User</span>
+          <span>Users</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Utilities:</h6>
-            <a class="collapse-item" href="#">User Information</a>
+          <a class="collapse-item" href="{{ route('user_info') }}">User Information</a>
             <a class="collapse-item" href="#">Driver Information</a>
           </div>
         </div>
@@ -238,7 +238,7 @@
             </li>
 
             <!-- Nav Item - Messages -->
-            
+
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -271,6 +271,7 @@
 
         </nav>
         <!-- End of Topbar -->
+
 
         @yield('content')
 
@@ -314,7 +315,10 @@
         </div>
       </div>
     </div>
-    <!--Sweet Alert-->
+
+    @jquery
+    @toastr_js
+    @toastr_render
 
 
     <!-- Bootstrap core JavaScript-->
@@ -336,11 +340,13 @@
     <!-- Page level plugins -->
     <script src="{{ asset('admin_assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/demo/datatables-demo.js') }}"></script>
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin_assets/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin_assets/js/demo/chart-pie-demo.js') }}"></script>
-      
+    <!--Sweet Alert-->
+
   </body>
 
   </html>

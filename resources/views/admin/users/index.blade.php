@@ -1,17 +1,17 @@
 @extends('layouts.dashboard')
 @section('title')
-    All Categories
+    User Information
 @endsection
 @section('content')
 <div class="container-fluid">
-    <a href="{{ route('category_form') }}" class="btn btn-primary"><i class="fas fa-plus">Add New</i></a>
+    {{-- <a href="#" class="btn btn-primary"><i class="fas fa-plus">Add New</i></a>--}}
     <hr>
     <div class="row">
       <div class="col-12">
           <div class="t-header">
             <div class="card shadow">
             <div class="card-header bg-success text-white">
-              <h6 class="m-0 font-weight-bold ">Categories</h6>
+              <h6 class="m-0 font-weight-bold ">User Informations</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -19,22 +19,31 @@
                   <thead>
                     <tr>
                       <th>SL. No</th>
-                      <th>Category</th>
+                      <th>User Name</th>
+                      <th>User Role</th>
+                      <th>User Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
 
-                    @forelse ($all_categories as $category)
+                    @forelse ($all_user as $users)
                       <tr>
                         <td>{{ $loop->index + 1 }}</td>
-                        <td>{{ $category->category }}</td>
+                        <td>{{ $users->name }}</td>
+                        @if ($users->role_id == 1)
+                            <td>Admin</td>
+                            @else
+                            <td>User</td>
+                        @endif
+                        @if ($users->status_id == 1)
+                            <td>Active</td>
+                            @else
+                            <td>Blocked</td>
+                        @endif
                         <td>
-                          <a href="{{ url('/category/edit', $category->id) }}" class="btn btn-info btn-circle">
+                        <a href="{{ url('/user/edit') }}/{{ $users->id }}" class="btn btn-info btn-circle">
                             <i class="fas fa-edit"></i>
-                          </a>
-                          <a href="{{ url('/category/delete',$category->id) }}" class="btn btn-danger btn-circle ">
-                            <i class="fas fa-trash"></i>
                           </a>
                         </td>
                       </tr>
