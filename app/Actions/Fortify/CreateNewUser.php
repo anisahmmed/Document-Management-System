@@ -30,6 +30,7 @@ class CreateNewUser implements CreatesNewUsers
             return tap(User::create([
                 'role_id' =>2,
                 'status_id' =>1,
+                'user_id' =>rand(),
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),

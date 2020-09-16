@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Document;
+use App\Models\Category;
 
 class UserController extends Controller
 {
     //Document Insert form view
     public function insert_form()
     {
-      return view('user.document.create_form');
+      $all_category = Category::all();
+      return view('user.document.create_form',compact('all_category'));
     }
 
     //All Document VIew
@@ -25,9 +27,12 @@ class UserController extends Controller
     {
       $last_inserted_id = Document::insertGetId([
         'title' => $request->title,
+        'user_id' => $request->user_id,
         'description' => $request->description,
+        'category_id' => $request->category,
         'file' => $request->document,
       ]);
+
       if ($request->hasFile('document')) {
 
         $file_upload = $request->document;
@@ -40,5 +45,18 @@ class UserController extends Controller
       }
       toastr()->success('New Document Added!','DOCUMENT');
       return redirect(route('all_document'));
+    }
+
+    //individual document view
+    public function document_view($id)
+    {
+      $single_doccument = Document::findOrFail($id);
+      return view('user.document.single_show',compact('single_doccument'));
+    }
+
+    //Document Download
+    public function document_download($file)
+    {
+      return response()->download('documents/'.$file);
     }
 }

@@ -52,3 +52,8 @@ Route::get('/document/insert-form',[UserController::class, 'insert_form'])->name
 Route::get('/all-document',[UserController::class, 'all_document'])->name('all_document');
 //Insert Documents
 Route::post('/document/insert',[UserController::class, 'document_insert'])->name('document_insert');
+//Single Document view
+Route::get('/individual-document/view/{id}',[UserController::class, 'document_view'])->name('document_view');
+//Document Download
+Route::get('/document/download/{file}',[UserCOntroller::class, 'document_download'])->name('document_download');
+// Route::get('/gallery',[UserController::class, 'gallery']);

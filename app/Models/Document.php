@@ -12,6 +12,12 @@ class Document extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'title', 'description','file',
+      'title', 'description','file','category_id',
     ];
+
+
+    public function RelationBetweenCategory()
+    {
+      return $this->hasOne('App\Models\Category', 'id', 'category_id');
+    }
 }

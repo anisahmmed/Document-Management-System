@@ -19,6 +19,7 @@
                   <thead>
                     <tr>
                       <th>SL. No</th>
+                      <th>Category</th>
                       <th>Title</th>
                       <th>Description</th>
                       <th>File</th>
@@ -26,33 +27,42 @@
                     </tr>
                   </thead>
                   <tbody>
-
+                    @php
+                      $sl= 1;
+                    @endphp
                     @forelse ($all_document as $document)
-                      <tr>
-                        <td>{{ $loop->index + 1 }}</td>
-                        <td>{{ $document->title }}</td>
-                        <td>{{ $document->description }}</td>
-                        <td>{{ $document->file }}</td>
-                        <td>
-                          <a href="#" class="btn btn-info btn-circle">
-                            <i class="fas fa-file-alt"></i>
-                          </a>
-                          <a href="#" class="btn btn-info btn-circle">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                          <a href="#" class="btn btn-danger btn-circle ">
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
-                    @empty
-                      <tr class="text-center">
-                        <td colspan="6">No Data Availabe</td>
-                      </tr>
+                      @if ($document->user_id ==Auth::user()->user_id)
+                        <tr>
+                          <td>{{ $sl++ }}</td>
+                          <td>{{ $document->RelationBetweenCategory->category }}</td>
+                          <td>{{ $document->title }}</td>
+                          <td>{{ $document->description }}</td>
+                          <td>{{ $document->file }}</td>
+                          <td>
+                            <a href="{{ url('/individual-document/view') }}/{{ $document->id }}" class="btn btn-primary btn-circle" >
+                              <i class="fas fa-file-alt"></i>
+                            </a>
+                            <a href="{{ url('/document/download', $document->file) }}" class="btn btn-success btn-circle">
+                              <i class="fas fa-file-download"></i>
+                            </a>
+                            <a href="#" class="btn btn-info btn-circle">
+                              <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="#" class="btn btn-danger btn-circle ">
+                              <i class="fas fa-trash"></i>
+                            </a>
+                          </td>
+                        </tr>
+                      @endif
+                      @empty
+                        <tr class="text-center">
+                          <td colspan="6">No Data Availabe</td>
+                        </tr>
                     @endforelse
-
                   </tbody>
                 </table>
+
+
               </div>
             </div>
           </div>
