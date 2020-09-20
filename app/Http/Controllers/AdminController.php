@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class AdminController extends Controller
@@ -34,5 +36,26 @@ class AdminController extends Controller
       ]);
       toastr()->success('Updated!','USER INFORMATION');
       return redirect(route('user_info'));
+    }
+
+    //Create Judge
+    public function create_judge(Request $request)
+    {
+        $request->validate([
+          'judge_name' => 'required|string|max:255',
+          'email' => 'required|string|email|max:255|unique:users',
+          'password' => 'required|string|min:8',
+        ]);
+
+        User::create([
+          'role_id' => 2,
+          'status_id' => 1,
+          'user_id' => rand(),
+          'name' => $request->judge_name,
+          'email' => $request->email,
+          'password' => Hash::make($request->password),
+        ]);
+        toastr()->success('New Judge Added');
+        return back();
     }
 }

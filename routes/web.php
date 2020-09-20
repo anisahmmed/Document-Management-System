@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JudgeCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,10 @@ Route::get('/user/edit/{id}',[AdminController::class, 'user_edit'])->name('user_
 //Update user Info
 Route::post('/user/update',[AdminController::class, 'user_update'])->name('user_update');
 
+//Create Judge
+Route::post('/create-judge',[AdminController::class, 'create_judge'])->name('create_judge');
+//Register Judge Category
+Route::get('/register-judge',[JudgeCategoryController::class, 'register_judge_info'])->name('register_judge_info');
 
 
 

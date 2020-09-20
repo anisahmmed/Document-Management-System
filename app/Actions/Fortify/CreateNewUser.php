@@ -28,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
 
         return DB::transaction(function () use ($input) {
             return tap(User::create([
-                'role_id' =>2,
+                'role_id' =>3,
                 'status_id' =>1,
                 'user_id' =>rand(),
                 'name' => $input['name'],

@@ -70,6 +70,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
             <a class="collapse-item" href="{{ route('category_info') }}">Category</a>
+            <a class="collapse-item" href="{{ route('register_judge_info') }}">Set judge category</a>
 
           </div>
         </div>
@@ -111,7 +112,7 @@
         </div>
       </li>
 
-      
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
