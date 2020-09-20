@@ -23,6 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
+//ADMIN UTILITIES
 //Category insert form view
 Route::get('/add/category-form',[CategoryController::class, 'category_form'])->name('category_form');
 //Category view
@@ -46,6 +48,8 @@ Route::post('/user/update',[AdminController::class, 'user_update'])->name('user_
 
 
 
+
+//USER UTILITIES
 //Document insert form
 Route::get('/document/insert-form',[UserController::class, 'insert_form'])->name('insert_form');
 //All Document View
@@ -56,4 +60,6 @@ Route::post('/document/insert',[UserController::class, 'document_insert'])->name
 Route::get('/individual-document/view/{id}',[UserController::class, 'document_view'])->name('document_view');
 //Document Download
 Route::get('/document/download/{file}',[UserCOntroller::class, 'document_download'])->name('document_download');
-// Route::get('/gallery',[UserController::class, 'gallery']);
+
+//Update Document Details
+Route::post('/update/document-details',[UserCOntroller::class, 'update_document_detail'])->name('update_document_detail');

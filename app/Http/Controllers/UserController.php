@@ -59,4 +59,16 @@ class UserController extends Controller
     {
       return response()->download('documents/'.$file);
     }
+
+    //Update document details
+    public function update_document_detail(Request $request)
+    {
+      Document::findOrFail($request->id)->update([
+        'title' => $request->title,
+        'description' => $request->description,
+      ]);
+      toastr()->success('Updated Successfully!', 'DOCUMENT DETAILS');
+      return back();
+    }
+
 }

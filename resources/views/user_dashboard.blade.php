@@ -111,7 +111,7 @@
         </div>
       </li>
 
-      
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -224,6 +224,8 @@
 
             <!-- Nav Item - Messages -->
 
+
+            
 
             <div class="topbar-divider d-none d-sm-block"></div>
 

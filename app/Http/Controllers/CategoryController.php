@@ -7,6 +7,10 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('restrict_user');
+    }
     function category_form()
     {
         return view('category.category_form');

@@ -7,6 +7,10 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('restrict_user');
+    }
     //User informations
     public function user_info()
     {
