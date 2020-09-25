@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <a href="{{ route('insert_form') }}" class="btn btn-primary"><i class="fas fa-plus">Add New</i></a>
+    <a href="{{ route('insert_form') }}" class="btn btn-info "><i class="fas fa-upload"> Upload</i></a><br>
     <hr>
     <div class="row">
       <div class="col-12">
@@ -21,8 +21,8 @@
                       <th>SL. No</th>
                       <th>Category</th>
                       <th>Title</th>
-                      <th>Description</th>
-                      <th>File</th>
+                      {{-- <th>Description</th> --}}
+                      <th>Approval Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -36,8 +36,12 @@
                           <td>{{ $sl++ }}</td>
                           <td>{{ $document->RelationBetweenCategory->category }}</td>
                           <td>{{ $document->title }}</td>
-                          <td>{{ $document->description }}</td>
-                          <td>{{ $document->file }}</td>
+                          {{-- <td>{{ $document->description }}</td> --}}
+                          @if ($document->approval_status == 1)
+                            <td class="text-success font-weight-bold">Approved</td>
+                            @else
+                              <td class="text-dark font-weight-bold">Your paper is in under review.</td>
+                          @endif
                           <td>
                             <a href="{{ url('/individual-document/view') }}/{{ $document->id }}" class="btn btn-primary btn-circle" >
                               <i class="fas fa-file-alt"></i>
@@ -45,12 +49,12 @@
                             <a href="{{ url('/document/download', $document->file) }}" class="btn btn-success btn-circle">
                               <i class="fas fa-file-download"></i>
                             </a>
-                            <a href="#" class="btn btn-info btn-circle">
+                            {{-- <a href="#" class="btn btn-info btn-circle">
                               <i class="fas fa-edit"></i>
                             </a>
                             <a href="#" class="btn btn-danger btn-circle ">
                               <i class="fas fa-trash"></i>
-                            </a>
+                            </a> --}}
                           </td>
                         </tr>
                       @endif

@@ -25,11 +25,14 @@
                     <select name="user_role" class="form-control">
                       @if ($single_user_info->role_id == 1)
                         <option class="bg-success text-white" value="1">Admin</option>
+                      @elseif ($single_user_info->role_id == 2)
+                        <option class="bg-success text-white" value="2">Judge</option>
                       @else
-                        <option class="bg-danger text-white" value="2">User</option>
+                        <option class="bg-danger text-white" value="3">User</option>
                       @endif
                       <option value="1">Admin</option>
-                      <option value="2">User</option>
+                      <option value="2">Judges</option>
+                      <option value="3">User</option>
                     </select>
                   </div>
                   <div class="form-group">

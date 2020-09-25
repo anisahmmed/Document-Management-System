@@ -26,12 +26,12 @@
                 @csrf
                 <div class="form-group">
                   <label for="">Title</label>
-                  <input type="text" name="title" class="form-control" placeholder="Title">
+                  <input type="text" name="title" class="form-control" placeholder="Title" value="{{ old('title') }}">
                   <input type="text" name="user_id" class="form-control" value="{{ Auth::user()->user_id }}" hidden>
                 </div>
                 <div class="form-group">
                   <label for="">Description</label>
-                  <textarea name="description" rows="4" class="form-control" placeholder="Description here..."></textarea>
+                  <textarea name="description" rows="4" class="form-control" placeholder="Description here...">{{ old('description') }}</textarea>
                 </div>
                 <div class="form-group">
                   <label for="">Select Category</label>
@@ -48,7 +48,7 @@
                   <small id="emailHelp" class="form-text text-danger">Please upload only pdf files.</small>
                 </div>
                 <div class="form-group">
-                  <input type="submit" class="btn btn-success" name="submit" value="Create">
+                  <input type="submit" class="btn btn-success" name="submit" value="Upload">
                 </div>
               </form>
             </div>

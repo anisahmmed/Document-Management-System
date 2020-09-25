@@ -25,9 +25,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role_id','status_id','user_id','name', 'email', 'password',
+        'role_id','status_id','user_id','name', 'email','category_id', 'password',
     ];
 
+
+    //Relation with Category Model
+    public function RelationWithCategory()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'category_id');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

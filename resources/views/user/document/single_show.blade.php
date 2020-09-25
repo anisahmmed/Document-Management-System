@@ -15,9 +15,6 @@
                 </div>
                 <div class="card-body">
                   <div class="float-right">
-                    <div class="">
-                      <a href="#" class="btn btn text-primary"><i class="fas fa-edit"></i> Edit File</a>
-                    </div><br>
                     <i class="fas fa-file-alt fa-10x"></i><br><br>
                     <a href="#" class="btn btn text-primary" data-toggle="modal" data-target="#modal1"><i class="fas fa-file-alt"></i> View file</a>
                     <a href="{{ url('/document/download', $single_doccument->file) }}" class="btn btng text-success"><i class="fas fa-file-download"></i> Download File</a><br><br>

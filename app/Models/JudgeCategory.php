@@ -14,4 +14,16 @@ class JudgeCategory extends Model
     protected $fillable = [
       'judge_id', 'category_id',
     ];
+
+    //Relation between JudgeCategory Model & User model
+    public function RelationBetweenJudge()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'judge_id');
+    }
+
+    //Relation between JudgeCategory model & Category model
+    public function RelationBetweenCategory()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'category_id');
+    }
 }

@@ -70,7 +70,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
             <a class="collapse-item" href="{{ route('category_info') }}">Category</a>
-            <a class="collapse-item" href="{{ route('register_judge_info') }}">Set judge category</a>
 
           </div>
         </div>
@@ -86,6 +85,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Utilities:</h6>
           <a class="collapse-item" href="{{ route('user_info') }}">User Information</a>
+          <a class="collapse-item" href="{{ route('register_judge_info') }}">Judges Information</a>
           </div>
         </div>
       </li>
@@ -95,7 +95,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        User Utilities
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -108,6 +108,29 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Document Information:</h6>
             <a class="collapse-item" href="{{ route('all_document') }}">Your Documents</a>
+          </div>
+        </div>
+      </li>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Judges Utilities
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#judgePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Review Documents</span>
+        </a>
+        <div id="judgePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Documents:</h6>
+            <a class="collapse-item" href="{{ route('judge_review_document') }}">Review Documents</a>
           </div>
         </div>
       </li>

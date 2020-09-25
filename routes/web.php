@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JudgeCategoryController;
+use App\Http\Middleware\CheckUser;
+use App\Http\Controllers\JudgeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,9 +51,19 @@ Route::post('/user/update',[AdminController::class, 'user_update'])->name('user_
 
 //Create Judge
 Route::post('/create-judge',[AdminController::class, 'create_judge'])->name('create_judge');
-//Register Judge Category
-Route::get('/register-judge',[JudgeCategoryController::class, 'register_judge_info'])->name('register_judge_info');
+//All Registered Judge Category
+Route::get('/registered-judge',[JudgeCategoryController::class, 'register_judge_info'])->name('register_judge_info');
+//Set New judge category
+Route::post('/register/judge-category',[JudgeCategoryController::class, 'set_judge_category'])->name('set_judge_category');
 
+
+
+//Judges Utilities
+Route::get('/document-review',[JudgeController::class, 'judge_review'])->name('judge_review_document');
+// Document Approve
+Route::post('/document-approve',[JudgeController::class, 'document_approve'])->name('document_approve');
+//Document Detail
+Route::get('/document-detail/{id}',[JudgeController::class, 'document_detail'])->name('document_detail');
 
 
 //USER UTILITIES
