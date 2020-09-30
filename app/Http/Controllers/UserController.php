@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Document;
 use App\Models\Category;
@@ -30,10 +31,12 @@ class UserController extends Controller
       //   'description' => 'required|string',
       //   'document' => 'required|max:3000|mimes:pdf',
       // ]);
+      $authors = implode(','.' ', $request->name);
       $last_inserted_id = Document::insertGetId([
         'title' => $request->title,
         'user_id' => $request->user_id,
         'description' => $request->description,
+        'author_name' => $authors,
         'category_id' => $request->category,
         'approval_status' => 0,
         'file' => $request->document,
@@ -77,4 +80,4 @@ class UserController extends Controller
       return back();
     }
 
-}
+  }

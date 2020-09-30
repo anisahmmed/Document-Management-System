@@ -81,6 +81,7 @@
                         </div>
                       </div>
                     </div>
+                    <span style="color:#000; font-size:18px;">Athors:</span> {{ Auth::user()->name }}, {{ $single_doccument->author_name }} <br><br>
                     <span style="color:#000; font-size:18px;">Document Category:</span> {{ $single_doccument->RelationBetweenCategory->category }} <br><br>
                     <span style="color:#000; font-size:18px;">Document Title:</span> {{ $single_doccument->title }} <br><br>
                     @php

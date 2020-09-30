@@ -22,7 +22,7 @@
                       </ul>
                   </div>
               @endif
-              <form class="" action="{{ route('document_insert') }}" method="post" enctype="multipart/form-data">
+              <form class="" id="document_insert_form" action="{{ route('document_insert') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                   <label for="">Title</label>
@@ -33,6 +33,21 @@
                   <label for="">Description</label>
                   <textarea name="description" rows="4" class="form-control" placeholder="Description here...">{{ old('description') }}</textarea>
                 </div>
+                  <label for="">Athor Name</label>
+                  <table class="table table-bordered" id="dynamic_field">
+                    <thead>
+                      <tr>
+                        {{-- <th>Add Author</th> --}}
+                      </tr>
+                    </thead>
+                    <tbody id="new_fields">
+
+                    </tbody>
+                    {{-- <tr>
+                      <td> <input type="text" name="name[]" class="form-control name_list"> </td>
+                      <td> <button name="add" id="add" class="btn btn-info">Add More</button> </td>
+                    </tr> --}}
+                  </table>
                 <div class="form-group">
                   <label for="">Select Category</label>
                   <select class="form-control" name="category">
@@ -48,7 +63,7 @@
                   <small id="emailHelp" class="form-text text-danger">Please upload only pdf files.</small>
                 </div>
                 <div class="form-group">
-                  <input type="submit" class="btn btn-success" name="submit" value="Upload">
+                  <input type="submit" id="save" class="btn btn-success" name="submit" id="submit" value="Upload">
                 </div>
               </form>
             </div>
@@ -58,4 +73,5 @@
       </div>
     </div>
 </div>
+
 @endsection

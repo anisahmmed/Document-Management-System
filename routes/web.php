@@ -23,7 +23,12 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+  if (Auth::user()->role_id == 1 ) {
     return view('dashboard');
+  }
+  else {
+    return view('user_dashboard');
+  }
 })->name('dashboard');
 
 

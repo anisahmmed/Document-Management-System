@@ -12,7 +12,7 @@ class Document extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'title', 'description','file','category_id', 'approval_status',
+      'title', 'description', 'author_name', 'file', 'category_id', 'approval_status',
     ];
 
 

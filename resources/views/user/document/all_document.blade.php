@@ -4,7 +4,8 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <a href="{{ route('insert_form') }}" class="btn btn-info "><i class="fas fa-upload"> Upload</i></a><br>
+    <a href="{{ route('insert_form') }}" class="btn btn-info "><i class="fas fa-upload"> Upload</i></a>
+    {{-- <a href="#" class="btn btn-primary"><i class="far fa-user"> Add Author</i></a> --}}
     <hr>
     <div class="row">
       <div class="col-12">
@@ -38,7 +39,7 @@
                           <td>{{ $document->title }}</td>
                           {{-- <td>{{ $document->description }}</td> --}}
                           @if ($document->approval_status == 1)
-                            <td class="text-success font-weight-bold">Approved</td>
+                            <td class="text-success font-weight-bold">Your document has been Approved</td>
                             @else
                               <td class="text-dark font-weight-bold">Your paper is in under review.</td>
                           @endif
