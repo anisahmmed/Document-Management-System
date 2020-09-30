@@ -41,7 +41,7 @@
                       </tr>
                     </thead>
                     <tbody id="new_fields">
-
+                      <input type="text" name="name[]" value="{{ Auth::user()->name }}" hidden>
                     </tbody>
                     {{-- <tr>
                       <td> <input type="text" name="name[]" class="form-control name_list"> </td>

@@ -69,6 +69,10 @@ Route::get('/document-review',[JudgeController::class, 'judge_review'])->name('j
 Route::post('/document-approve',[JudgeController::class, 'document_approve'])->name('document_approve');
 //Document Detail
 Route::get('/document-detail/{id}',[JudgeController::class, 'document_detail'])->name('document_detail');
+//Judges feedback form view
+Route::get('/comment/{id}',[JudgeController::class, 'comment_form'])->name('comment_form');
+//Judges Feedback send
+Route::post('/comment/send',[JudgeController::class, 'comment_send'])->name('comment_send');
 
 
 //USER UTILITIES

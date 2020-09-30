@@ -26,7 +26,7 @@
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-dark">
                       @php
                         $sl= 1;
                       @endphp
@@ -43,21 +43,23 @@
                                 <td class="text-dasrk font-weight-bold">This paper is in under review.</td>
                             @endif
                             <td>
-                              @if ($document->approval_status != 1)
-                                <form class="" action="{{ route('document_approve') }}" method="post">
-                                  @csrf
-                                  <input type="checkbox" name="approve" >
-                                  <input type="text" name="id" value="{{ $document->id }}" hidden>
-                                  <input type="submit" class="btn btn-success" name="" value="Approve">
-                                </form>
-                              @endif
                               <a href="{{ url('/document-detail') }}/{{ $document->id }}" class="btn btn-info btn-circle" >
                                 <i class="fas fa-eye"></i>
                               </a>
 
-                              <a href="{{ url('/document/download', $document->file) }}" class="btn btn-success btn-circle">
-                                <i class="fas fa-file-download"></i>
+                              <a href="{{ url('/comment', $document->id) }}" class="btn btn-success btn-circle">
+                                <i class="far fa-comment-alt"></i>
                               </a>
+                              <div class="float-right">
+                                @if ($document->approval_status != 1)
+                                  <form class="" action="{{ route('document_approve') }}" method="post">
+                                    @csrf
+                                    <input type="checkbox" name="approve" >
+                                    <input type="text" name="id" value="{{ $document->id }}" hidden>
+                                    <input type="submit" class="btn btn-success" name="" value="Approve">
+                                  </form>
+                                @endif
+                              </div>
                             </td>
                           </tr>
                         @endif

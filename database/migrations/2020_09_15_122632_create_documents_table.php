@@ -22,6 +22,7 @@ class CreateDocumentsTable extends Migration
             $table->longText('description');
             $table->string('file');
             $table->boolean('approval_status')->nullable();
+            $table->longText('feedback_message')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

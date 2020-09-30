@@ -22,12 +22,12 @@
                       <th>SL. No</th>
                       <th>Category</th>
                       <th>Title</th>
-                      {{-- <th>Description</th> --}}
+                      <th>Feedback Message</th>
                       <th>Approval Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="text-dark">
                     @php
                       $sl= 1;
                     @endphp
@@ -37,7 +37,11 @@
                           <td>{{ $sl++ }}</td>
                           <td>{{ $document->RelationBetweenCategory->category }}</td>
                           <td>{{ $document->title }}</td>
-                          {{-- <td>{{ $document->description }}</td> --}}
+                          @if ($document->feedback_message != null)
+                            <td>{{ $document->feedback_message }}</td>
+                            @else
+                              <td></td>
+                          @endif
                           @if ($document->approval_status == 1)
                             <td class="text-success font-weight-bold">Your document has been Approved</td>
                             @else
