@@ -13,6 +13,7 @@ class AdminController extends Controller
     public function __construct()
     {
       $this->middleware('restrict_user');
+      $this->middleware('auth');
     }
     //User informations
     public function user_info()

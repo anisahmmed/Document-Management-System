@@ -13,6 +13,7 @@ class JudgeCategoryController extends Controller
     public function __construct()
     {
       $this->middleware('restrict_user');
+      $this->middleware('auth');
     }
     //index
     public function judge_info()

@@ -9,6 +9,10 @@ use App\Models\Category;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     //Document Insert form view
     public function insert_form()
     {
