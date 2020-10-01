@@ -10,8 +10,12 @@ use App\Models\User;
 
 class JudgeCategoryController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('restrict_user');
+    }
     //index
-    public function register_judge_info()
+    public function judge_info()
     {
         // $all_judge_category = User::where('role_id', 2)->get();
         $all_judge = User::where('role_id', 2)->get();
@@ -20,7 +24,7 @@ class JudgeCategoryController extends Controller
     }
 
     //Set Judge Category
-    public function set_judge_category(Request $request)
+    public function create_judge(Request $request)
     {
         $request->validate([
           'judge_name' => 'required|string|max:255',
@@ -40,4 +44,16 @@ class JudgeCategoryController extends Controller
         toastr()->success('Added new judge!');
         return back();
     }
+
+    //Judge Delete
+    function judge_delete($id)
+    {
+        User::findOrFail($id)->delete();
+        toastr()->error('Judge has been deleted!');
+        return back();
+    }
+
+
+
+//END
 }

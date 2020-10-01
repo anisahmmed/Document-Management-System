@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Document;
 
 class AdminController extends Controller
 {
@@ -38,24 +39,17 @@ class AdminController extends Controller
       return redirect(route('user_info'));
     }
 
-    //Create Judge
-    public function create_judge(Request $request)
+    //View All documents
+    function all_documents()
     {
-        $request->validate([
-          'judge_name' => 'required|string|max:255',
-          'email' => 'required|string|email|max:255|unique:users',
-          'password' => 'required|string|min:8',
-        ]);
+        $all_documents = Document::all();
+        return view('admin.documents.all_document',compact('all_documents'));
+    }
 
-        User::create([
-          'role_id' => 2,
-          'status_id' => 1,
-          'user_id' => rand(),
-          'name' => $request->judge_name,
-          'email' => $request->email,
-          'password' => Hash::make($request->password),
-        ]);
-        toastr()->success('New Judge Added');
-        return back();
+    //Single Document Details
+    function single_document_detail($id)
+    {
+        $single_document_detail = Document::findOrFail($id);
+        return view('admin.documents.single_document_view',compact('single_document_detail'));
     }
 }

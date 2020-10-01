@@ -40,10 +40,10 @@
                           @if ($document->feedback_message != null)
                             <td>{{ $document->feedback_message }}</td>
                             @else
-                              <td></td>
+                              <td>Empty</td>
                           @endif
                           @if ($document->approval_status == 1)
-                            <td class="text-success font-weight-bold">Your document has been Approved</td>
+                            <td class="text-success font-weight-bold">Your document has been Approved <br>{{ date('d-M-Y', strtotime($document->published_date))}} </td>
                             @else
                               <td class="text-dark font-weight-bold">Your paper is in under review.</td>
                           @endif

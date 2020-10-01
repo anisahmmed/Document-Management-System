@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JudgeCategoryController;
 use App\Http\Middleware\CheckUser;
 use App\Http\Controllers\JudgeController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,7 @@ use App\Http\Controllers\JudgeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -32,9 +33,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-//ADMIN UTILITIES
-//Category insert form view
-Route::get('/add/category-form',[CategoryController::class, 'category_form'])->name('category_form');
+//Announcements
+Route::get('/announcements',[HomeController::class, 'announcements'])->name('announcements');
+//Document Detail for guest
+Route::get('/document/detail/{id}',[HomeController::class, 'guest_document_view'])->name('guest_document_view');
+//ADMIN UTILITIE
+
 //Category view
 Route::get('/all-categories',[CategoryController::class, 'category_info'])->name('category_info');
 //Caregory insert
@@ -46,7 +50,6 @@ Route::post('/category/update',[CategoryController::class, 'category_update'])->
 //Delete Category
 Route::get('/category/delete/{id}',[CategoryController::class, 'category_delete'])->name('category_delete');
 
-
 //User Information view
 Route::get('/users',[AdminController::class, 'user_info'])->name('user_info');
 //Edit User
@@ -54,13 +57,18 @@ Route::get('/user/edit/{id}',[AdminController::class, 'user_edit'])->name('user_
 //Update user Info
 Route::post('/user/update',[AdminController::class, 'user_update'])->name('user_update');
 
-//Create Judge
-Route::post('/create-judge',[AdminController::class, 'create_judge'])->name('create_judge');
-//All Registered Judge Category
-Route::get('/registered-judge',[JudgeCategoryController::class, 'register_judge_info'])->name('register_judge_info');
-//Set New judge category
-Route::post('/register/judge-category',[JudgeCategoryController::class, 'set_judge_category'])->name('set_judge_category');
 
+//All Registered Judge
+Route::get('/judges',[JudgeCategoryController::class, 'judge_info'])->name('judge_info');
+//Create Judge
+Route::post('/create/judge',[JudgeCategoryController::class, 'create_judge'])->name('create_judge');
+//Delete Judge
+Route::get('/judge/delete/{id}',[JudgeCategoryController::class, 'judge_delete'])->name('judge_delete');
+
+//All documents view
+Route::get('/all-documents',[AdminController::class, 'all_documents'])->name('all_admin_documents');
+//Document Detail for admin
+Route::get('/document/details/{id}',[AdminController::class, 'single_document_detail'])->name('single_document_detail');
 
 
 //Judges Utilities

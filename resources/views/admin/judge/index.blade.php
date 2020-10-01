@@ -16,7 +16,7 @@
         </div>
         <div class="modal-body mx-3">
 
-          <form class="" action="{{ route('set_judge_category') }}" method="post">
+          <form class="" action="{{ route('create_judge') }}" method="post">
             @csrf
             <div class="md-form mb-5">
               {{-- <i class="fas fa-envelope prefix grey-text"></i> --}}
@@ -69,7 +69,7 @@
                 </div>
             @endif
           <div class="card-header bg-success text-white">
-            <h6 class="m-0 font-weight-bold ">Judge Categories</h6>
+            <h6 class="m-0 font-weight-bold ">Judge Informations</h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -83,7 +83,7 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-dark">
 
                   @forelse ($all_judge as $judges)
                     <tr>
@@ -92,10 +92,7 @@
                       <td>{{ $judges->email }}</td>
                       <td>{{ $judges->RelationWithCategory->category }}</td>
                       <td>
-                        <a href="#" class="btn btn-info btn-circle">
-                          <i class="fas fa-edit"></i>
-                        </a>
-                        <a href="#" class="btn btn-danger btn-circle">
+                        <a href="{{ url('/judge/delete', $judges->id) }}" class="btn btn-danger btn-circle">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>

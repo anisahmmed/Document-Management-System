@@ -7,19 +7,17 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    //Restrict User Access
     public function __construct()
     {
       $this->middleware('restrict_user');
     }
-    function category_form()
-    {
-        return view('category.category_form');
-    }
+
     //Category Informations
     function category_info()
     {
         $all_categories = Category::all();
-        return view('category.categories',['all_categories'=>$all_categories]);
+        return view('admin.category.categories',['all_categories'=>$all_categories]);
     }
 
     //Category insert
@@ -28,7 +26,7 @@ class CategoryController extends Controller
         Category::create([
             'category' => $request->category,
         ]);
-        toastr()->success('Added Successfully!','NEW CATEGORY');
+        toastr()->success('Added new category');
         return redirect(route('category_info'));
     }
 
@@ -37,7 +35,7 @@ class CategoryController extends Controller
     {
       // echo $id;
       $single_category = Category::find($id);
-      return view('category.edit',compact('single_category'));
+      return view('admin.category.edit',compact('single_category'));
     }
 
     //Update Category

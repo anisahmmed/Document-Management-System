@@ -4,7 +4,34 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <a href="{{ route('category_form') }}" class="btn btn-primary"><i class="fas fa-plus">Add New</i></a>
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm"><i class="fas fa-plus"> Add New Category</i></a>
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Create Category</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+
+            <form class="" action="{{ route('category_insert') }}" method="post">
+              @csrf
+              <div class="md-form mb-5">
+                <i class="fas fa-drumstick-bite prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Category</label>
+                <input type="text" id="orangeForm-name" name="category" class="form-control validate" value="{{ old('judge_name') }}">
+              </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-right">
+              <input type="submit" class="btn btn-success" name="submit" value="Create">
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
     <hr>
     <div class="row">
       <div class="col-12">

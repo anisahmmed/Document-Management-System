@@ -87,18 +87,10 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">User Utilities:</h6>
             <a class="collapse-item" href="{{ route('user_info') }}">User Information</a>
-            <a class="collapse-item" href="{{ route('register_judge_info') }}">Judges Information</a>
+            <a class="collapse-item" href="{{ route('judge_info') }}">Judges Information</a>
             </div>
           </div>
         </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-          User Utilities
-        </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -109,35 +101,10 @@
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Document Information:</h6>
-              <a class="collapse-item" href="{{ route('all_document') }}">Your Documents</a>
+              <a class="collapse-item" href="{{ route('all_admin_documents') }}">All Documents</a>
             </div>
           </div>
         </li>
-
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-          Judges Utilities
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#judgePages" aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Review Documents</span>
-          </a>
-          <div id="judgePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Documents:</h6>
-              <a class="collapse-item" href="{{ route('judge_review_document') }}">Review Documents</a>
-            </div>
-          </div>
-        </li>
-
-
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -400,7 +367,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Anis Ahmmed 2020</span>
+            <span>Copyright &copy; Document Management System 2020</span>
           </div>
         </div>
       </footer>

@@ -46,10 +46,11 @@
                               <a href="{{ url('/document-detail') }}/{{ $document->id }}" class="btn btn-info btn-circle" >
                                 <i class="fas fa-eye"></i>
                               </a>
-
-                              <a href="{{ url('/comment', $document->id) }}" class="btn btn-success btn-circle">
-                                <i class="far fa-comment-alt"></i>
-                              </a>
+                              @if ($document->approval_status != 1)
+                                <a href="{{ url('/comment', $document->id) }}" class="btn btn-success btn-circle">
+                                  <i class="far fa-comment-alt"></i>
+                                </a>
+                              @endif
                               <div class="float-right">
                                 @if ($document->approval_status != 1)
                                   <form class="" action="{{ route('document_approve') }}" method="post">

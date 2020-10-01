@@ -46,10 +46,11 @@
                       </div>
                     </div>
                   </div>
-                  <div class="text-justify">
+                  <div class="text-justify text-dark">
                     {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> --}}
-                    
+
                     <span style="color:#000; font-size:18px;">Authors Name:</span> {{ $single_document->author_name }} <br><br>
+                    <span style="color:#000; font-size:18px;">Published Date:</span> {{ date('d-M-Y', strtotime($single_document->author_name)) }} <br><br>
                     <span style="color:#000; font-size:18px;">Document Category:</span> {{ $single_document->RelationBetweenCategory->category }} <br><br>
                     <span style="color:#000; font-size:18px;">Document Title:</span> {{ $single_document->title }} <br><br>
                     @php
