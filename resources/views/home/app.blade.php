@@ -29,7 +29,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand font-weight-bold text-success" href="{{ url('/') }}">Document Management System</a>
+      <a class="navbar-brand font-weight-bold text-success" href="{{ url('/') }}">EDMS</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="{{ route('announcements') }}">Announcements</a>
