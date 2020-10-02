@@ -24,6 +24,9 @@ class CategoryController extends Controller
     //Category insert
     function category_insert(Request $request)
     {
+        $request->validate([
+          'category' => 'required|string',
+        ]);
         Category::create([
             'category' => $request->category,
         ]);

@@ -8,6 +8,8 @@ use App\Http\Controllers\JudgeCategoryController;
 use App\Http\Middleware\CheckUser;
 use App\Http\Controllers\JudgeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Models\Document;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,14 +27,18 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
   if (Auth::user()->role_id == 1 ) {
-    return view('dashboard');
+    $all_documents = Document::all();
+    return view('dashboard', compact('all_documents'));
   }
   else {
     return view('user_dashboard');
   }
 })->name('dashboard');
 
-
+//Login form view
+Route::get('/login-page',[LoginController::class, 'login_form'])->name('login_form');
+//Register form view
+Route::get('/register-page',[LoginController::class, 'register_form'])->name('register_form');
 //Announcements
 Route::get('/announcements',[HomeController::class, 'announcements'])->name('announcements');
 //Document Detail for guest

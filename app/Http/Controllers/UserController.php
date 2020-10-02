@@ -30,11 +30,10 @@ class UserController extends Controller
     //Insert Document
     public function document_insert(Request $request)
     {
-      // $request->validate([
-      //   'title' => 'required|string',
-      //   'description' => 'required|string',
-      //   'document' => 'required|max:3000|mimes:pdf',
-      // ]);
+      $request->validate([
+        'title' => 'required|string',
+        'description' => 'required|string',
+      ]);
       $authors = implode(','.' ', $request->name);
       $last_inserted_id = Document::insertGetId([
         'title' => $request->title,

@@ -35,7 +35,7 @@
           <a class="nav-link" href="{{ route('announcements') }}">Announcements</a>
         </li>
       </ul>
-      <a class="btn btn" href="{{ route('login') }}">Sign In</a>
+      <a class="btn btn" href="{{ route('login_form') }}">Sign In</a>
     </div>
   </nav>
 
@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
 
-          <p class="text-muted small mb-4 mb-lg-0 text-center">&copy; Document Management System- 2020. All Rights Reserved.</p>
+          <p class="text-muted small mb-4 mb-lg-0 text-center">&copy; Electronic Document Management System- 2020. All Rights Reserved.</p>
         </div>
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">

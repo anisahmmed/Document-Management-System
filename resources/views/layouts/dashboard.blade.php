@@ -41,7 +41,7 @@
           <div class="sidebar-brand-icon">
           <i class="far fa-file"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">Document Mangement</div>
+          <div class="sidebar-brand-text mx-3">EDMS</div>
         </a>
 
         <!-- Divider -->
@@ -367,7 +367,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Document Management System 2020</span>
+            <span>Copyright &copy; Electronic Document Management System 2020</span>
           </div>
         </div>
       </footer>
@@ -461,40 +461,7 @@
           $(this).closest("tr").remove();
         });
 
-      //   $.ajaxSetup({
-      //     headers: {
-      //       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      //     }
-      //   });
-      //   $('#document_insert_form').on('submit', function(event){
-      //   event.preventDefault();
-      //   $.ajax({
-      //       method:'post',
-      //       data:$(this).serialize(),
-      //       dataType:'json',
-      //       success:function(data)
-      //       {
-      //           if(data.error)
-      //           {
-      //               var error_html = '';
-      //               for(var count = 0; count < data.error.length; count++)
-      //               {
-      //                   error_html += '<p>'+data.error[count]+'</p>';
-      //               }
-      //               $('#result').html('<div class="alert alert-danger">'+error_html+'</div>');
-      //           }
-      //           else
-      //           {
-      //               dynamic_field(1);
-      //               $('#result').html('<div class="alert alert-success">'+data.success+'</div>');
-      //           }
-      //           $('#save').attr('disabled', false);
-      //       }
-      //   })
-      // });
-
-
-  });
+    });
       </script>
 
   </body>
