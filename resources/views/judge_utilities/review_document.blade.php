@@ -37,8 +37,8 @@
                             <td>{{ $document->RelationBetweenCategory->category }}</td>
                             <td>{{ $document->title }}</td>
                             {{-- <td>{{ $document->description }}</td> --}}
-                            @if ($document->approval_status == 1)
-                              <td class="text-success font-weight-bold">Approved</td>
+                            @if ($document->approval_status == 2)
+                              <td class="text-warning font-weight-bold">Waiting for admin approval</td>
                               @else
                                 <td class="text-dasrk font-weight-bold">This paper is in under review.</td>
                             @endif
@@ -46,13 +46,13 @@
                               <a href="{{ url('/document-detail') }}/{{ $document->id }}" class="btn btn-info btn-circle" >
                                 <i class="fas fa-eye"></i>
                               </a>
-                              @if ($document->approval_status != 1)
+                              @if ($document->technical_quality = null)
                                 <a href="{{ url('/comment', $document->id) }}" class="btn btn-success btn-circle">
                                   <i class="far fa-comment-alt"></i>
                                 </a>
                               @endif
                               <div class="float-right">
-                                @if ($document->approval_status != 1)
+                                @if ($document->approval_status = null )
                                   <form class="" action="{{ route('document_approve') }}" method="post">
                                     @csrf
                                     <input type="checkbox" name="approve" >

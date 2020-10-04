@@ -36,8 +36,10 @@
                             <td>{{ $document->RelationBetweenCategory->category }}</td>
                             <td>{{ $document->title }}</td>
                             {{-- <td>{{ $document->description }}</td> --}}
-                            @if ($document->approval_status == 1)
-                              <td class="text-success font-weight-bold">Published</td>
+                            @if ($document->approval_status == 2)
+                              <td class="text-success font-weight-bold">Judges has given approval to publish</td>
+                            @elseif($document->approval_status == 1)
+                              <td class="text-success font-weight-bold">Approved to publish</td>
                               @else
                                 <td class="text-dasrk font-weight-bold">This paper is in under review.</td>
                             @endif
@@ -45,6 +47,16 @@
                               <a href="{{ url('/document/details') }}/{{ $document->id }}" class="btn btn-info btn-circle" >
                                 <i class="fas fa-eye"></i>
                               </a>
+                              <div class="float-right">
+                                @if ($document->approval_status != 1 )
+                                  <form class="" action="{{ route('admin_approval') }}" method="post">
+                                    @csrf
+                                    <input type="checkbox" name="approve" >
+                                    <input type="text" name="id" value="{{ $document->id }}" hidden>
+                                    <input type="submit" class="btn btn-success" name="" value="Approve">
+                                  </form>
+                                @endif
+                              </div>
                             </td>
                           </tr>
                         @empty

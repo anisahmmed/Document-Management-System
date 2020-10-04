@@ -23,7 +23,12 @@ class CreateDocumentsTable extends Migration
             $table->string('file');
             $table->boolean('approval_status')->nullable();
             $table->date('published_date')->nullable();
-            $table->longText('feedback_message')->nullable();
+            $table->string('technical_quality')->nullable();
+            $table->string('presentaion_quality')->nullable();
+            $table->string('clarity')->nullable();
+            $table->string('reference_survey')->nullable();
+            $table->string('relevance')->nullable();
+            $table->longText('author_message')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

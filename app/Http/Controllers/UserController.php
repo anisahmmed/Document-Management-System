@@ -83,4 +83,11 @@ class UserController extends Controller
       return back();
     }
 
+    //View Feedback message
+    function feedback_message($id)
+    {
+        $single_message = Document::findOrFail($id);
+        return view('user.document.feedback_comment_view', compact('single_message'));
+    }
+
   }

@@ -43,6 +43,7 @@ Route::get('/register-page',[LoginController::class, 'register_form'])->name('re
 Route::get('/announcements',[HomeController::class, 'announcements'])->name('announcements');
 //Document Detail for guest
 Route::get('/document/detail/{id}',[HomeController::class, 'guest_document_view'])->name('guest_document_view');
+
 //ADMIN UTILITIE
 
 //Category view
@@ -75,6 +76,9 @@ Route::get('/judge/delete/{id}',[JudgeCategoryController::class, 'judge_delete']
 Route::get('/all-documents',[AdminController::class, 'all_documents'])->name('all_admin_documents');
 //Document Detail for admin
 Route::get('/document/details/{id}',[AdminController::class, 'single_document_detail'])->name('single_document_detail');
+//Admin Approval
+Route::post('/admin-approve',[AdminController::class, 'admin_approval'])->name('admin_approval');
+
 
 
 //Judges Utilities
@@ -103,3 +107,6 @@ Route::get('/document/download/{file}',[UserCOntroller::class, 'document_downloa
 
 //Update Document Details
 Route::post('/update/document-details',[UserCOntroller::class, 'update_document_detail'])->name('update_document_detail');
+
+//User view feedback message
+Route::get('/feedback-message/{id}',[UserCOntroller::class, 'feedback_message'])->name('feedback_message');

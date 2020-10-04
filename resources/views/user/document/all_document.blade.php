@@ -37,8 +37,10 @@
                           <td>{{ $sl++ }}</td>
                           <td>{{ $document->RelationBetweenCategory->category }}</td>
                           <td>{{ $document->title }}</td>
-                          @if ($document->feedback_message != null)
-                            <td>{{ $document->feedback_message }}</td>
+                          @if ($document->technical_quality != null)
+                            <td>
+                              <a href="{{ url('/feedback-message', $document->id) }}" class="btn btn-info">View message</a>
+                            </td>
                             @else
                               <td>Empty</td>
                           @endif

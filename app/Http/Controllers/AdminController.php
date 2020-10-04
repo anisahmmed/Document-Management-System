@@ -53,4 +53,21 @@ class AdminController extends Controller
         $single_document_detail = Document::findOrFail($id);
         return view('admin.documents.single_document_view',compact('single_document_detail'));
     }
+
+    //Admin Doccument Approval
+    function admin_approval(Request $request)
+    {
+        $approveVal = $request->approve;
+        if ($approveVal == 'on') {
+          $approveVal = 1;
+        }
+        else {
+          $approveVal = 0;
+        }
+        Document::findOrFail($request->id)->update([
+          'approval_status' => $approveVal,
+        ]);
+        toastr()->success('Document has been approved to publish!');
+        return back();
+    }
 }

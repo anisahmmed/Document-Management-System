@@ -12,8 +12,15 @@ class Document extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'title', 'description', 'author_name', 'file', 'category_id', 'feedback_message', 'approval_status', 'published_date',
+      'title', 'description', 'author_name', 'file', 'category_id', 'author_message','technical_quality','presentaion_quality',
+      'clarity','reference_survey','relevance', 'approval_status', 'published_date',
     ];
+
+
+
+
+
+
 
 
     public function RelationBetweenCategory()

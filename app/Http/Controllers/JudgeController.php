@@ -25,7 +25,7 @@ class JudgeController extends Controller
       // $socument = Document::findOrFail($request->id);
       $approveVal = $request->approve;
       if ($approveVal == 'on') {
-        $approveVal = 1;
+        $approveVal = 2;
       }
       else {
         $approveVal = 0;
@@ -34,7 +34,7 @@ class JudgeController extends Controller
         'approval_status' =>$approveVal,
         'published_date' => Carbon::now(),
       ]);
-      toastr()->success('The document has been approved!');
+      toastr()->success('The document has been waiting for admin approval!');
       return back();
     }
 
@@ -55,8 +55,25 @@ class JudgeController extends Controller
     //Judges Comment send
     function comment_send(Request $request)
     {
+      $request->validate([
+        'technical_quality' => 'required',
+        'presentation_quality' => 'required',
+        'clarity' => 'required',
+        'reference_survey' => 'required',
+        'relevance' => 'required',
+      ]);
+        $technical_quality = $request['technical_quality'];
+        $presentation_quality = $request['presentation_quality'];
+        $clarity = $request['clarity'];
+        $reference_survey = $request['reference_survey'];
+        $relevance = $request['relevance'];
         Document::findOrFail($request->id)->update([
-          'feedback_message' => $request->comment,
+          'technical_quality' => $technical_quality,
+          'presentaion_quality' => $presentation_quality,
+          'clarity' => $clarity,
+          'reference_survey' => $reference_survey,
+          'relevance' => $relevance,
+          'author_message' => $request->author_message,
         ]);
         toastr()->success('Feedback has been send!');
         return redirect(route('judge_review_document'));
